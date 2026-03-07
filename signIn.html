@@ -131,39 +131,25 @@
 
   
 
-<!-- ================= SIGN UP / CREATE ACCOUNT SECTION ================= -->
-<section class="my-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-  <div class="w-full max-w-lg bg-white/95 backdrop-blur-lg rounded-3xl   p-8 sm:p-10 lg:p-12">
+<!-- ================= SIGN IN SECTION ================= -->
+<section class=" my-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+  <div class="w-full max-w-md bg-white/95 backdrop-blur-lg rounded-3xl  p-8 sm:p-10 lg:p-12">
     
     <!-- Heading -->
     <div class="text-center mb-10">
-      <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 font-serif tracking-tight mb-3">
-        Create your account
+      <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 font-serif tracking-tight mb-3">
+        Sign in to your account
       </h1>
       <p class="text-gray-600 text-base sm:text-lg">
         Or 
         <a href="#" class="text-rose-600 hover:text-rose-700 font-medium underline hover:no-underline transition">
-          sign in to your existing account
+          create a new account
         </a>
       </p>
     </div>
 
     <!-- Form -->
     <form class="space-y-6">
-      <!-- Full Name -->
-      <div>
-        <label for="full-name" class="block text-sm font-medium text-gray-700 mb-2">
-          Full name
-        </label>
-        <input 
-          id="full-name" 
-          type="text" 
-          required 
-          class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 bg-white/80 placeholder-gray-400 outline-none transition text-gray-800"
-          placeholder="Your full name"
-        >
-      </div>
-
       <!-- Email -->
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
@@ -173,12 +159,12 @@
           id="email" 
           type="email" 
           required 
-          class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 bg-white/80 placeholder-gray-400 outline-none transition"
+          class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 bg-white/80 placeholder-gray-400 outline-none transition text-gray-800"
           placeholder="you@example.com"
         >
       </div>
 
-      <!-- Password -->
+      <!-- Password with Show/Hide -->
       <div>
         <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
           Password
@@ -204,68 +190,37 @@
         </div>
       </div>
 
-      <!-- Confirm Password -->
-      <div>
-        <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-2">
-          Confirm password
+      <!-- Remember & Forgot -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+        <label class="flex items-center text-gray-600">
+          <input type="checkbox" class="h-4 w-4 text-rose-600 focus:ring-rose-500 border-gray-300 rounded">
+          <span class="ml-2">Remember me</span>
         </label>
-        <div class="relative">
-          <input 
-            id="confirm-password" 
-            type="password" 
-            required 
-            class="w-full px-5 py-4 rounded-xl border border-gray-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-200 bg-white/80 placeholder-gray-400 outline-none transition pr-12"
-            placeholder="••••••••"
-          >
-          <button 
-            type="button" 
-            id="toggleConfirmPassword"
-            class="absolute inset-y-0 right-4 flex items-center text-gray-500 hover:text-rose-600 focus:outline-none"
-          >
-            <svg id="eyeIconConfirm" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </button>
-        </div>
+        <a href="#" class="text-rose-600 hover:text-rose-700 font-medium hover:underline">
+          Forgot your password?
+        </a>
       </div>
 
-      <!-- Terms Checkbox -->
-      <div class="flex items-start">
-        <input 
-          id="terms" 
-          type="checkbox" 
-          required 
-          class="h-5 w-5 mt-1 text-rose-600 focus:ring-rose-500 border-gray-300 rounded"
-        >
-        <label for="terms" class="ml-3 text-sm text-gray-600">
-          I agree to the 
-          <a href="#" class="text-rose-600 hover:underline">Terms of Service</a> and 
-          <a href="#" class="text-rose-600 hover:underline">Privacy Policy</a>
-        </label>
-      </div>
-
-      <!-- Create Account Button -->
+      <!-- Sign In Button -->
       <button 
         type="submit"
         class="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 rounded-xl text-lg transition-all duration-300 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
       >
-        Create Account
+        Sign In
       </button>
     </form>
 
-    <!-- Bottom Link -->
+    <!-- Agreement Text -->
     <p class="mt-8 text-center text-sm text-gray-500">
-      Already have an account? 
-      <a href="signIn.html" class="text-rose-600 hover:text-rose-700 font-medium underline hover:no-underline">
-        Sign in
-      </a>
+      By signing in, you agree to our 
+      <a href="#" class="text-rose-600 hover:underline">Terms of Service</a> and 
+      <a href="#" class="text-rose-600 hover:underline">Privacy Policy</a>.
     </p>
   </div>
 </section>
 
 <script>
-// Password toggle for main password
+// Password toggle functionality
 const togglePassword = document.getElementById('togglePassword');
 const password = document.getElementById('password');
 const eyeIcon = document.getElementById('eyeIcon');
@@ -278,21 +233,9 @@ togglePassword.addEventListener('click', function () {
     ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />`
     : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />`;
 });
-
-// Confirm Password toggle
-const toggleConfirm = document.getElementById('toggleConfirmPassword');
-const confirmPassword = document.getElementById('confirm-password');
-const eyeIconConfirm = document.getElementById('eyeIconConfirm');
-
-toggleConfirm.addEventListener('click', function () {
-  const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
-  confirmPassword.setAttribute('type', type);
-  
-  eyeIconConfirm.innerHTML = type === 'text' 
-    ? `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />`
-    : `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />`;
-});
 </script>
+
+
 
 
 
