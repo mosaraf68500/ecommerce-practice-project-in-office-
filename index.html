@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SaulMihrage - Premium Skincare</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+    .hero-bg {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: opacity 1.3s ease-in-out;
+    }
+    .hero-bg.active {
+      opacity: 1;
+    }
+    .hero-bg:not(.active) {
+      opacity: 0;
+      position: absolute;
+      inset: 0;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 antialiased">
+
+  <!-- ================= NAVBAR ================= -->
+ <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16 sm:h-20">
+
+      <!-- Logo -->
+      <a href="#" class="">
+        <img src="./assets/images/logo.png" alt="Logo" class="w-28 h-16 object-contain">
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-10">
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-gray-700 hover:text-[#343f50] transition py-2 text-base">
+            Skincare
+            <svg class="w-4 h-4 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="absolute hidden group-hover:block pt-2 w-56 bg-white shadow-xl rounded-xl border border-gray-100 overflow-hidden">
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">Cleansers</a>
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">Moisturizers</a>
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">Serums & Treatments</a>
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">Masks</a>
+          </div>
+        </div>
+
+        <div class="relative group">
+          <button class="flex items-center gap-1.5 text-gray-700 hover:text-rose-600 transition py-2 text-base">
+            Collections
+            <svg class="w-4 h-4 transition group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="absolute hidden group-hover:block pt-2 w-56 bg-white shadow-xl rounded-xl border border-gray-100 overflow-hidden">
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">New Arrivals</a>
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">Best Sellers</a>
+            <a href="#" class="block px-6 py-3.5 text-gray-700 hover:bg-rose-50 hover:text-rose-600 transition">Gift Sets</a>
+          </div>
+        </div>
+
+        <a href="#" class="text-gray-700 hover:text-rose-600 transition text-base">About</a>
+        <a href="#" class="text-gray-700 hover:text-rose-600 transition text-base">Contact</a>
+
+        <!-- Desktop Icons at the end -->
+        <div class="flex items-center gap-4 ml-6">
+          <!-- Search -->
+          <button class="text-gray-700 hover:text-rose-600 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </button>
+
+          <!-- User -->
+          <div class="relative">
+            <button id="userBtn" class="text-gray-700 hover:text-rose-600 transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </button>
+            <div id="dropdown" class="hidden absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded shadow-lg">
+              <a href="/signup.html" class="block px-4 py-2 text-gray-700 hover:bg-rose-100">Sign Up</a>
+              <a href="/signin.html" class="block px-4 py-2 text-gray-700 hover:bg-rose-100">Sign In</a>
+            </div>
+          </div>
+
+          <!-- Checkout -->
+          <a href="/checkout.html" class="text-gray-700 hover:text-rose-600 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h14l-2-9M17 13V5M9 13V5"/>
+            </svg>
+          </a>
+        </div>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <div class="flex lg:hidden items-center">
+        <button id="mobile-menu-btn" class="text-gray-700 hover:text-rose-600 focus:outline-none">
+          <svg id="hamburger" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-lg">
+    <div class="px-5 py-6 space-y-5">
+      <div class="space-y-1">
+        <div class="font-medium text-gray-900 py-2">Skincare</div>
+        <a href="#" class="block pl-4 py-2 text-gray-600 hover:text-rose-600">Cleansers</a>
+        <a href="#" class="block pl-4 py-2 text-gray-600 hover:text-rose-600">Essences</a>
+        <a href="#" class="block pl-4 py-2 text-gray-600 hover:text-rose-600">Moisturizers</a>
+      </div>
+      <div class="space-y-1">
+        <div class="font-medium text-gray-900 py-2">Collections</div>
+        <a href="#" class="block pl-4 py-2 text-gray-600 hover:text-rose-600">Toners</a>
+        <a href="#" class="block pl-4 py-2 text-gray-600 hover:text-rose-600">Masks</a>
+      </div>
+      <a href="#" class="block py-2 text-gray-700 hover:text-rose-600 font-medium">About</a>
+      <a href="#" class="block py-2 text-gray-700 hover:text-rose-600 font-medium">Contact</a>
+    </div>
+  </div>
+</header>
+
+
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] flex items-center overflow-hidden pt-16 sm:pt-20">
+    
+    <!-- Background Images -->
+    <div id="hero-bg-1" class="hero-bg absolute inset-0 opacity-0 active" 
+         style="background-image: url('./assets/images/image1.jpg')">
+    </div>
+    <div id="hero-bg-2" class="hero-bg absolute inset-0 opacity-0"
+          style="background-image: url('./assets/images/image2.jpg')">
+    </div>
+    <div id="hero-bg-3" class="hero-bg absolute inset-0 opacity-0"
+         style="background-image: url('./assets/images/image3.jpg')">
+    </div>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-black/30"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-6xl mx-auto px-5 sm:px-8 lg:px-12 text-center sm:text-left text-white">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-5 sm:mb-8 drop-shadow-2xl">
+        Discover your skin's<br class="hidden sm:block"> true potential
+      </h1>
+      
+      <p class="text-base sm:text-lg md:text-xl lg:text-2xl mb-8 sm:mb-12 max-w-xl mx-auto sm:mx-0 drop-shadow-lg">
+        Premium skincare that combines innovation with clean, effective ingredients for all skin types.
+      </p>
+
+      <div class="flex  gap-4 sm:gap-6 justify-center sm:justify-start">
+        <a href="#" 
+           class="inline-block bg-white hover:bg-white text-black font-medium px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg transition transform hover:scale-105 shadow-lg">
+          Shop Now
+        </a>
+        <a href="#" 
+           class="inline-block border-2 border-white/80 hover:bg-white/10 text-white font-medium px-8 sm:px-10 py-4 sm:py-5 rounded-full text-base sm:text-lg transition backdrop-blur-sm">
+          About Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- ================= BESTSELLERS SECTION ================= -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-8 sm:mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 font-serif">Bestsellers</h2>
+      <a href="#" class="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 text-lg transition">
+        View all products →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
+      <!-- Product Card (repeat 4-5 times for demo) -->
+      <div class="group relative bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+        <div class="relative aspect-square">
+          <img src="https://plus.unsplash.com/premium_photo-1661769021743-7139c6fc4ab9?fm=jpg&q=80&w=800" alt="Brightening Serum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-gray-900 font-medium px-6 py-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-2 hover:bg-rose-50">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Add to Cart
+          </button>
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-medium text-gray-900 mb-1">Brightening Serum</h3>
+          <p class="text-rose-600 font-semibold text-xl mb-2">$65</p>
+          <div class="flex items-center justify-center gap-1 text-yellow-500">
+            <span>4.9</span>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="text-gray-500 text-sm">(186)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- আরও ৩-৪টা একই রকম card copy-paste করে দিতে পারো, অথবা loop দিয়ে -->
+      <!-- ... repeat similar cards ... -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP BY CATEGORY ================= -->
+<section class="py-12 sm:py-16 lg:py-20 bg-pink-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 font-serif text-center mb-8 sm:mb-12">Shop by Category</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+      <!-- Category Card -->
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://thumbs.dreamstime.com/b/pastel-skincare-products-beauty-cream-jars-floral-elements-spa-wellness-day-serene-scene-set-against-soft-pink-392255769.jpg" alt="Cleansers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Cleansers</h3>
+        </div>
+      </a>
+
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://plus.unsplash.com/premium_photo-1661769021743-7139c6fc4ab9?fm=jpg&q=80&w=800" alt="Serums" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Serums</h3>
+        </div>
+      </a>
+
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://thumbs.dreamstime.com/b/skincare-cream-pink-rose-petals-white-background-flat-lay-composition-featuring-open-jar-moisturizing-cream-402801883.jpg" alt="Moisturizers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Moisturizers</h3>
+        </div>
+      </a>
+
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://thumbs.dreamstime.com/b/spa-girl-pleased-facial-expression-applies-clay-mask-face-gets-beauty-treatments-wears-white-soft-towel-head-spa-girl-168787854.jpg" alt="Masks" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Masks</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEW ARRIVALS SECTION ================= -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-8 sm:mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 font-serif">New Arrivals</h2>
+      <a href="#" class="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 text-lg transition">
+        View all products →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
+      <!-- Similar product cards as Bestsellers, but with different images -->
+      <!-- Use images like cherry blossom themed for new feel -->
+      <!-- Example one: -->
+      <div class="group relative bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+        <div class="relative aspect-square">
+          <img src="https://thumbs.dreamstime.com/b/pink-serum-bottles-cherry-blossom-skincare-beauty-cosmetic-product-elegant-luxury-d-two-elegant-pink-serum-bottles-droppers-378811917.jpg" alt="Brightening Serum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <!-- Same add to cart button as above -->
+          <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-gray-900 font-medium px-6 py-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-2 hover:bg-rose-50">
+            Add to Cart
+          </button>
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-medium text-gray-900 mb-1">Brightening Serum</h3>
+          <p class="text-rose-600 font-semibold text-xl mb-2">$65</p>
+          <div class="flex items-center justify-center gap-1 text-yellow-500">
+            <span>4.9</span>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="text-gray-500 text-sm">(186)</span>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat more cards with different images from search results -->
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ================= OUR PHILOSOPHY + TESTIMONIALS SECTION ================= -->
+<section class="bg-gradient-to-b from-[#F9E4CB] to-white py-12 sm:py-16 lg:py-24">
+  <div class="max-w-7xl mx-auto px-5  sm:px-6 lg:px-8">
+
+    <!-- OUR SKINCARE PHILOSOPHY -->
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-20 lg:mb-32">
+      <div class="order-2 lg:order-1 text-center lg:text-left">
+        <h2 class="text-3xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-serif mb-6 leading-tight">
+          Our Skincare Philosophy
+        </h2>
+        <p class="text-md sm:text-sm text-gray-700 mb-8 max-w-2xl mx-auto lg:mx-0">
+          Seoul Mirage was born from a deep appreciation for Korean skincare innovation 
+          and the belief that effective products should be accessible to everyone.
+        </p>
+        <p class="text-md sm:text-sm text-gray-700 mb-10 max-w-2xl mx-auto lg:mx-0">
+          We combine time-tested Korean ingredients with modern science to create 
+          formulations that deliver visible results. Each product is meticulously crafted 
+          to honor the tradition of the multi-step skincare ritual while fitting seamlessly 
+          into your daily routine.
+        </p>
+        <a href="#" 
+           class="inline-block bg-white hover:bg-gray-50 text-black font-medium px-3 sm:px-10 py-2 sm:py-3 rounded-full text-base sm:text-lg transition transform hover:scale-105 ">
+          About Us
+        </a>
+      </div>
+
+      <div class="order-1 lg:order-2 relative rounded-xl overflow-hidden aspect-[4/3] lg:aspect-auto">
+        <img 
+          src="./assets/images/skinecare.jpg" 
+          class="w-full h-full object-cover"
+        >
+        <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+      </div>
+    </div>
+
+    <!-- DON'T JUST TAKE OUR WORDS (TESTIMONIAL CAROUSEL) -->
+    <div class="text-center">
+      <div class="text-rose-600 font-medium text-lg sm:text-xl mb-3">3940+ Happy Users</div>
+      <h2 class="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 font-serif mb-12">
+        Don't just take our words
+      </h2>
+
+      <!-- Carousel Container -->
+     <!-- Carousel Container -->
+<div class="relative max-w-5xl mx-auto">
+  <div id="testimonial-carousel" class="overflow-hidden">
+    <div id="slides" class="flex transition-transform duration-700 ease-in-out">
+
+      <!-- Slide 1 -->
+      <div class="min-w-full flex gap-4 px-4">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-gray-100 flex-1">
+          <div class="flex flex-col md:flex-row items-center gap-4">
+            <img 
+              src="https://thumbs.dreamstime.com/b/beauty-natural-portrait-happy-woman-studio-makeup-facial-skincare-routine-health-smile-face-beauty-natural-277974880.jpg" 
+              alt="Devon Lane" 
+              class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-rose-100 shadow-md"
+            >
+            <div class="text-left">
+              <div class="text-yellow-500 text-xl mb-2">★★★★★</div>
+              <p class="text-gray-700 text-sm sm:text-md italic mb-2">
+                "We love it! Our designers were using it for their projects, so we already knew what kind of design they want."
+              </p>
+              <p class="font-semibold text-gray-900">Devon Lane</p>
+              <p class="text-gray-500 text-xs sm:text-sm">Skincare Enthusiast</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-gray-100 flex-1">
+          <div class="flex flex-col md:flex-row items-center gap-4">
+            <img 
+              src="https://img.freepik.com/free-photo/close-up-confident-corporate-woman-professional-entrepreneur-smiling-cross-arms-chest-smiling-enthusiastic-standing-white-background_1258-85600.jpg?semt=ais_rp_50_assets&w=740&q=80" 
+              alt="Jane Doe" 
+              class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-rose-100 shadow-md"
+            >
+            <div class="text-left">
+              <div class="text-yellow-500 text-xl mb-2">★★★★★</div>
+              <p class="text-gray-700 text-sm sm:text-md italic mb-2">
+                "Amazing results in just two weeks! My skin feels hydrated and glowing every day – highly recommend for busy routines."
+              </p>
+              <p class="font-semibold text-gray-900">Jane Doe</p>
+              <p class="text-gray-500 text-xs sm:text-sm">Beauty Blogger</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="min-w-full flex gap-4 px-4">
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-gray-100 flex-1">
+          <div class="flex flex-col md:flex-row items-center gap-4">
+            <img 
+              src="https://thumbs.dreamstime.com/b/happy-young-caucasian-female-skincare-routine-smiling-expression-happy-young-caucasian-female-skincare-routine-smiling-404965161.jpg" 
+              alt="Alice" 
+              class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-rose-100 shadow-md"
+            >
+            <div class="text-left">
+              <div class="text-yellow-500 text-xl mb-2">★★★★★</div>
+              <p class="text-gray-700 text-sm sm:text-md italic mb-2">
+                "The clean ingredients make all the difference. No irritation, just beautiful skin – this brand changed my routine!"
+              </p>
+              <p class="font-semibold text-gray-900">Alice</p>
+              <p class="text-gray-500 text-xs sm:text-sm">Customer</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-lg border border-gray-100 flex-1">
+          <div class="flex flex-col md:flex-row items-center gap-4">
+            <img 
+              src="https://img.freepik.com/free-photo/portrait-happy-woman-smiling-isolated_53876-40306.jpg" 
+              alt="Maria" 
+              class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-rose-100 shadow-md"
+            >
+            <div class="text-left">
+              <div class="text-yellow-500 text-xl mb-2">★★★★★</div>
+              <p class="text-gray-700 text-sm sm:text-md italic mb-2">
+                "Love the texture and the results! My skin never felt so smooth before."
+              </p>
+              <p class="font-semibold text-gray-900">Maria</p>
+              <p class="text-gray-500 text-xs sm:text-sm">Customer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Dots Pagination -->
+  <div class="flex justify-center gap-3 mt-8">
+    <button class="dot w-3 h-3 rounded-full bg-rose-300 hover:bg-rose-500 transition" data-slide="0"></button>
+    <button class="dot w-3 h-3 rounded-full bg-rose-300 hover:bg-rose-500 transition" data-slide="1"></button>
+  </div>
+</div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<footer class="pt-16 pb-10 border-t border-rose-100/50 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+
+    <!-- Newsletter / Join Our Community -->
+    <div class="text-center mb-16 lg:mb-20">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 font-serif tracking-tight mb-4">
+        Join Our Community
+      </h2>
+      <p class="text-md sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
+        Subscribe to our newsletter for exclusive offers, skincare tips, and new product announcements.
+      </p>
+
+      <!-- Subscription Form -->
+      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+        <input 
+          type="email" 
+          placeholder="Your email address" 
+          class="flex-1 px-6 py-4 rounded-full border border-gray-300 focus:border-rose-500 focus:ring-2 focus:ring-rose-100 outline-none bg-white/80 backdrop-blur-sm text-gray-700 placeholder-gray-400 transition"
+          required
+        >
+        <button 
+          type="submit"
+          class="bg-rose-500 text-white font-medium px-10 py-4 rounded-full text-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] whitespace-nowrap"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    <!-- Main Footer Links + Logo/Social -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 mb-12 lg:mb-16">
+
+      <!-- Brand / Logo + Description -->
+      <div class="flex flex-col items-start">
+        <a href="#" class="">
+          <img 
+            src="./assets/images/logo.png" 
+            alt="Logo" 
+            class="w-36 h-20 object-cover"
+          >
+        </a>
+        <p class="text-gray-600 leading-relaxed text-sm mb-6">
+          Premium Korean-inspired skincare that blends tradition with modern science for radiant, healthy skin.
+        </p>
+        <div class="flex gap-4">
+          <!-- Instagram -->
+          <a href="#" class="text-gray-500 hover:text-rose-600 transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.239 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.239-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.239-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-2.062.094-3.479.632-4.729 1.882-1.25 1.25-1.788 2.667-1.882 4.729-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.094 2.062.632 3.479 1.882 4.729 1.25 1.25 2.667 1.788 4.729 1.882 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c2.062-.094 3.479-.632 4.729-1.882 1.25-1.25 1.788-2.667 1.882-4.729.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.094-2.062-.632-3.479-1.882-4.729-1.25-1.25-2.667-1.788-4.729-1.882-1.28-.058-1.688-.072-4.947-.072z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" class="text-gray-500 hover:text-rose-600 transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+            </svg>
+          </a>
+          <!-- Twitter / Instagram alt -->
+          <a href="#" class="text-gray-500 hover:text-rose-600 transition">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.239 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.239-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.239-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301 1.266-.058 1.646-.07 4.85-.07z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Shop Links -->
+      <div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-6">Shop</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li><a href="#" class="hover:text-rose-600 transition">All Products</a></li>
+          <li><a href="#" class="hover:text-rose-600 transition">Bestsellers</a></li>
+          <li><a href="#" class="hover:text-rose-600 transition">New Arrivals</a></li>
+          <li><a href="#" class="hover:text-rose-600 transition">Collections</a></li>
+        </ul>
+      </div>
+
+      <!-- About Links -->
+      <div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-6">About</h3>
+        <ul class="space-y-3 text-gray-600">
+          <li><a href="#" class="hover:text-rose-600 transition">About Us</a></li>
+          <li><a href="#" class="hover:text-rose-600 transition">Contact Us</a></li>
+          <li><a href="#" class="hover:text-rose-600 transition">Shipping & Returns</a></li>
+          <li><a href="#" class="hover:text-rose-600 transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright -->
+    <div class="pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
+      © 2026 SaulMihrage. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+  const btn = document.getElementById('userBtn');
+  const dropdown = document.getElementById('dropdown');
+
+  // Toggle dropdown
+  btn.addEventListener('click', () => {
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Close dropdown if clicked outside
+  document.addEventListener('click', (e) => {
+    if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
+
+  <script>
+    // Slideshow
+    const backgrounds = [
+      document.getElementById('hero-bg-1'),
+      document.getElementById('hero-bg-2'),
+      document.getElementById('hero-bg-3')
+    ];
+    let current = 0;
+
+    function nextSlide() {
+      backgrounds[current].classList.remove('active');
+      current = (current + 1) % backgrounds.length;
+      backgrounds[current].classList.add('active');
+    }
+
+    backgrounds[0].classList.add('active');
+    setInterval(nextSlide, 5800);
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const hamburger = document.getElementById('hamburger');
+    const closeIcon = document.getElementById('close');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      hamburger.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+
+    const slidesContainer = document.getElementById('slides');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+  const totalSlides = dots.length;
+
+  function goToSlide(index) {
+    currentSlide = index;
+    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('bg-rose-600', i === currentSlide);
+      dot.classList.toggle('bg-rose-300', i !== currentSlide);
+    });
+  }
+
+  // Auto slide every 6 seconds
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
+  }, 6000);
+
+  // Dot click
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+
+  // Initial state
+  goToSlide(0);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!-- ================= BESTSELLERS SECTION ================= -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-8 sm:mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 font-serif">Bestsellers</h2>
+      <a href="#" class="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 text-lg transition">
+        View all products →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
+      <!-- Product Card (repeat 4-5 times for demo) -->
+      <div class="group relative bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+        <div class="relative aspect-square">
+          <img src="https://plus.unsplash.com/premium_photo-1661769021743-7139c6fc4ab9?fm=jpg&q=80&w=800" alt="Brightening Serum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-gray-900 font-medium px-6 py-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-2 hover:bg-rose-50">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+            Add to Cart
+          </button>
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-medium text-gray-900 mb-1">Brightening Serum</h3>
+          <p class="text-rose-600 font-semibold text-xl mb-2">$65</p>
+          <div class="flex items-center justify-center gap-1 text-yellow-500">
+            <span>4.9</span>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="text-gray-500 text-sm">(186)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- আরও ৩-৪টা একই রকম card copy-paste করে দিতে পারো, অথবা loop দিয়ে -->
+      <!-- ... repeat similar cards ... -->
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP BY CATEGORY ================= -->
+<section class="py-12 sm:py-16 lg:py-20 bg-pink-50">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 font-serif text-center mb-8 sm:mb-12">Shop by Category</h2>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+      <!-- Category Card -->
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://thumbs.dreamstime.com/b/pastel-skincare-products-beauty-cream-jars-floral-elements-spa-wellness-day-serene-scene-set-against-soft-pink-392255769.jpg" alt="Cleansers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Cleansers</h3>
+        </div>
+      </a>
+
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://plus.unsplash.com/premium_photo-1661769021743-7139c6fc4ab9?fm=jpg&q=80&w=800" alt="Serums" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Serums</h3>
+        </div>
+      </a>
+
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://thumbs.dreamstime.com/b/skincare-cream-pink-rose-petals-white-background-flat-lay-composition-featuring-open-jar-moisturizing-cream-402801883.jpg" alt="Moisturizers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Moisturizers</h3>
+        </div>
+      </a>
+
+      <a href="#" class="group relative rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 aspect-[4/5] flex flex-col">
+        <img src="https://thumbs.dreamstime.com/b/spa-girl-pleased-facial-expression-applies-clay-mask-face-gets-beauty-treatments-wears-white-soft-towel-head-spa-girl-168787854.jpg" alt="Masks" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+        <div class="absolute bottom-6 left-6 right-6 text-white">
+          <h3 class="text-2xl sm:text-3xl font-bold">Masks</h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEW ARRIVALS SECTION ================= -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-8 sm:mb-12">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 font-serif">New Arrivals</h2>
+      <a href="#" class="text-rose-600 hover:text-rose-700 font-medium flex items-center gap-2 text-lg transition">
+        View all products →
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
+      <!-- Similar product cards as Bestsellers, but with different images -->
+      <!-- Use images like cherry blossom themed for new feel -->
+      <!-- Example one: -->
+      <div class="group relative bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+        <div class="relative aspect-square">
+          <img src="https://thumbs.dreamstime.com/b/pink-serum-bottles-cherry-blossom-skincare-beauty-cosmetic-product-elegant-luxury-d-two-elegant-pink-serum-bottles-droppers-378811917.jpg" alt="Brightening Serum" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <!-- Same add to cart button as above -->
+          <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-gray-900 font-medium px-6 py-3 rounded-full opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-2 hover:bg-rose-50">
+            Add to Cart
+          </button>
+        </div>
+        <div class="p-5 text-center">
+          <h3 class="text-lg font-medium text-gray-900 mb-1">Brightening Serum</h3>
+          <p class="text-rose-600 font-semibold text-xl mb-2">$65</p>
+          <div class="flex items-center justify-center gap-1 text-yellow-500">
+            <span>4.9</span>
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+            <span class="text-gray-500 text-sm">(186)</span>
+          </div>
+        </div>
+      </div>
+      <!-- Repeat more cards with different images from search results -->
+    </div>
+  </div>
+</section>

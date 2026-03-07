@@ -1,0 +1,21 @@
+/* style.css */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+.hero-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 1.3s ease-in-out;
+}
+.hero-bg.active {
+  opacity: 1;
+}
+.hero-bg:not(.active) {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+}
