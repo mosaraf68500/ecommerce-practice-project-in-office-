@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Products - SaulMihrage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .font-serif { font-family: 'Playfair Display', serif; }
+    .category-btn { transition: all 0.3s ease; border-bottom: 2px solid transparent; }
+    .category-btn.active { color: #e11d48; border-bottom-color: #e11d48; }
+    .animate-fadeIn { animation: fadeIn 0.6s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body class="bg-gray-50 antialiased">
+
+  <header class="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-5 lg:px-8">
+      <div class="flex justify-between items-center h-16 sm:h-20">
+        <a href="index.html" class="flex-shrink-0">
+          <img src="./assets/images/logo.png" alt="Logo" class="w-32 sm:w-36 object-contain" onerror="this.src='https://via.placeholder.com/150x50?text=SaulMihrage'">
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-10">
+          <a href="products.html" class="text-gray-700 hover:text-rose-600 transition font-medium">Skincare</a>
+          <a href="about.html" class="text-gray-700 hover:text-rose-600 transition font-medium">About</a>
+          <a href="contact.html" class="text-gray-700 hover:text-rose-600 transition font-medium">Contact</a>
+          <div class="flex items-center gap-5 ml-4">
+            <a href="signIn.html" class="text-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></a>
+            <a href="checkout.html" class="text-gray-700"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-width="2"/></svg></a>
+          </div>
+        </nav>
+
+        <button id="mobile-menu-btn" class="lg:hidden text-gray-700 p-2">
+          <svg id="hamb-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-b shadow-xl absolute w-full left-0">
+      <div class="px-6 py-8 space-y-5">
+        <a href="products.html" class="block text-lg font-medium">Skincare</a>
+        <a href="about.html" class="block text-lg font-medium">About Us</a>
+        <a href="contact.html" class="block text-lg font-medium">Contact</a>
+        <div class="flex gap-4 pt-4">
+          <a href="signIn.html" class="flex-1 text-center bg-black text-white py-3 rounded-lg">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-32 min-h-screen bg-white">
+    <div class="max-w-7xl mx-auto px-5 sm:px-8 border-b border-rose-100 pb-5 mb-10">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+        <nav id="category-nav" class="flex flex-wrap justify-center gap-6 text-xs sm:text-sm font-medium uppercase tracking-widest text-gray-500">
+          <button onclick="filterByCategory('all', this)" class="category-btn active pb-1 transition">All Product</button>
+        </nav>
+        <div class="flex items-center gap-3">
+          <span class="text-sm text-gray-400 font-medium">Sort:</span>
+          <select id="sort-filter" onchange="sortProducts()" class="bg-transparent text-sm font-semibold outline-none cursor-pointer">
+            <option value="featured">Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 sm:px-8">
+      <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6 sm:gap-x-10">
+        <div class="col-span-full text-center py-20 text-rose-300 italic">Curating your collection...</div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-5 flex flex-col items-center gap-4 py-20">
+      <div class="flex items-center gap-6">
+        <button id="prev-btn" onclick="changePage(-1)" class="p-3 border rounded-full disabled:opacity-20 hover:bg-rose-50 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span id="page-info" class="text-sm font-bold tracking-widest text-gray-400 uppercase">Page 1 of 1</span>
+        <button id="next-btn" onclick="changePage(1)" class="p-3 border rounded-full disabled:opacity-20 hover:bg-rose-50 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-gray-50 pt-16 pb-10 border-t border-rose-50">
+    <div class="max-w-7xl mx-auto px-5 text-center sm:text-left">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-10">
+        <div>
+          <img src="./assets/images/logo.png" alt="Logo" class="w-32 mb-6 mx-auto sm:mx-0">
+          <p class="text-gray-500 text-sm">Blended with tradition and modern science for radiant skin.</p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-5">Shop</h4>
+          <ul class="text-sm text-gray-500 space-y-3">
+            <li><a href="#" class="hover:text-rose-600">New Arrivals</a></li>
+            <li><a href="#" class="hover:text-rose-600">Best Sellers</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-5">Help</h4>
+          <ul class="text-sm text-gray-500 space-y-3">
+            <li><a href="#" class="hover:text-rose-600">Contact Us</a></li>
+            <li><a href="#" class="hover:text-rose-600">Shipping Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-xs text-gray-400 border-t pt-8 text-center">© 2026 SaulMihrage. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const API_URL = "https://ecommerce-backend-sigma-sand.vercel.app/api/products";
+    let allProducts = [], filteredProducts = [], currentPage = 1;
+    const itemsPerPage = 12;
+
+    // Mobile Menu logic
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    menuBtn.onclick = () => {
+      const isHidden = menu.classList.toggle('hidden');
+      document.getElementById('hamb-icon').classList.toggle('hidden', !isHidden);
+      document.getElementById('close-icon').classList.toggle('hidden', isHidden);
+    };
+
+    async function init() {
+      try {
+        const res = await fetch(API_URL);
+        const json = await res.json();
+        if(json.success) {
+          allProducts = json.data.filter(p => p.category !== 'Mobile');
+          filteredProducts = [...allProducts];
+          renderCats();
+          update();
+        }
+      } catch(e) { console.error(e); }
+    }
+
+    function renderCats() {
+      const nav = document.getElementById('category-nav');
+      const cats = [...new Set(allProducts.map(p => p.category))];
+      cats.forEach(c => {
+        const b = document.createElement('button');
+        b.className = "category-btn pb-1 uppercase";
+        b.innerText = c;
+        b.onclick = (e) => {
+          document.querySelectorAll('.category-btn').forEach(x => x.classList.remove('active'));
+          e.target.classList.add('active');
+          filteredProducts = allProducts.filter(p => p.category === c);
+          currentPage = 1; update();
+        };
+        nav.appendChild(b);
+      });
+    }
+
+    function filterByCategory(cat, el) {
+      document.querySelectorAll('.category-btn').forEach(x => x.classList.remove('active'));
+      el.classList.add('active');
+      filteredProducts = (cat === 'all') ? [...allProducts] : allProducts.filter(p => p.category === cat);
+      currentPage = 1; update();
+    }
+
+    function sortProducts() {
+      const type = document.getElementById('sort-filter').value;
+      if(type === 'low') filteredProducts.sort((a,b) => a.price - b.price);
+      else if(type === 'high') filteredProducts.sort((a,b) => b.price - a.price);
+      else filteredProducts.sort((a,b) => (a._id > b._id ? 1 : -1));
+      currentPage = 1; update();
+    }
+
+    function update() {
+      const start = (currentPage - 1) * itemsPerPage;
+      const items = filteredProducts.slice(start, start + itemsPerPage);
+      const grid = document.getElementById('product-grid');
+      
+      grid.innerHTML = items.map(p => `
+        <div class="group cursor-pointer animate-fadeIn" onclick="location.href='details.html?id=${p._id}'">
+          <div class="relative aspect-square overflow-hidden bg-gray-50 mb-5 rounded-sm">
+            <img src="${p.imageUrl || p.image}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+            <button class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/95 px-6 py-2 shadow-sm opacity-0 group-hover:opacity-100 transition-all text-[10px] font-bold uppercase tracking-widest">View Details</button>
+          </div>
+          <p class="text-[10px] text-gray-400 uppercase tracking-widest mb-1">${p.category}</p>
+          <h3 class="text-sm font-medium text-gray-900 truncate mb-1">${p.name}</h3>
+          <p class="text-base font-bold text-gray-900">$${p.price}</p>
+        </div>
+      `).join('');
+
+      const total = Math.ceil(filteredProducts.length / itemsPerPage);
+      document.getElementById('page-info').innerText = `Page ${currentPage} of ${total || 1}`;
+      document.getElementById('prev-btn').disabled = currentPage === 1;
+      document.getElementById('next-btn').disabled = currentPage === total || total === 0;
+    }
+
+    function changePage(d) { currentPage += d; update(); window.scrollTo({top:0, behavior:'smooth'}); }
+    init();
+  </script>
+</body>
+</html>

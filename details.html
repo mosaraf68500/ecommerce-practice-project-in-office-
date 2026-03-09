@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details - SaulMihrage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>body{font-family:'Inter',sans-serif;} h1{font-family:'Playfair Display',serif;}</style>
+</head>
+<body class="bg-white">
+
+  <header class="border-b h-16 flex items-center px-5">
+    <a href="products.html" class="flex items-center gap-2 text-sm font-medium text-gray-600">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to Collection
+    </a>
+  </header>
+
+  <main id="details-content" class="max-w-7xl mx-auto px-5 py-12 lg:py-20">
+    <div class="text-center py-20 italic text-gray-400">Loading details...</div>
+  </main>
+
+  <script>
+    const API_URL = "https://ecommerce-backend-sigma-sand.vercel.app/api/products";
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    async function loadDetail() {
+      try {
+        const res = await fetch(API_URL);
+        const json = await res.json();
+        const p = json.data.find(item => item._id === productId);
+
+        if(p) {
+          document.getElementById('details-content').innerHTML = `
+            <div class="flex flex-col lg:flex-row gap-12 lg:gap-20">
+              <div class="flex-1 bg-gray-50 rounded-xl overflow-hidden">
+                <img src="${p.imageUrl || p.image}" class="w-full h-full object-cover">
+              </div>
+              <div class="flex-1 flex flex-col justify-center">
+                <p class="text-rose-500 font-bold tracking-widest text-xs uppercase mb-3">${p.category}</p>
+                <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">${p.name}</h1>
+                <p class="text-3xl font-light text-gray-900 mb-8">$${p.price}</p>
+                <p class="text-gray-600 leading-relaxed mb-10 text-lg">
+                  Premium ${p.category} formulated for visible results. This treatment honors your ritual with clean, effective ingredients.
+                </p>
+                <button class="w-full lg:w-max px-12 py-4 bg-black text-white font-bold rounded-sm hover:bg-gray-800 transition uppercase tracking-widest text-sm">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          `;
+        }
+      } catch(e) { console.error(e); }
+    }
+    loadDetail();
+  </script>
+</body>
+</html>
