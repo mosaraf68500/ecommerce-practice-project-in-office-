@@ -34,19 +34,18 @@
 </head>
 <body class="bg-gray-50 antialiased">
 
-   <!-- ================= NAVBAR ================= -->
+
  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
   <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-16 sm:h-20">
 
      <div>
-       <!-- Logo -->
       <a href="index.html" class="">
         <img src="./assets/images/logo.png" alt="Logo" class="w-36 object-contain">
       </a>
      </div>
 
-      <!-- Desktop Menu -->
+
       <nav class="hidden lg:flex items-center gap-8 xl:gap-10">
         <div class="relative group">
           <a href="/products.html"> <button class="flex items-center gap-1.5 text-gray-700 hover:text-[#343f50] transition py-2 text-base">
@@ -80,16 +79,13 @@
         <a href="/about.html" class="text-gray-700 hover:text-rose-600 transition text-base">About</a>
         <a href="#" class="text-gray-700 hover:text-rose-600 transition text-base">Contact</a>
 
-        <!-- Desktop Icons at the end -->
         <div class="flex items-center gap-4 ml-6">
-          <!-- Search -->
           <button class="text-gray-700 hover:text-rose-600 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
           </button>
 
-          <!-- User -->
           <div class="relative">
             <button id="userBtn" class="text-gray-700 hover:text-rose-600 transition">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,7 +98,6 @@
             </div>
           </div>
 
-          <!-- Checkout -->
           <a href="/checkout.html" class="text-gray-700 hover:text-rose-600 transition">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2 9h14l-2-9M17 13V5M9 13V5"/>
@@ -111,7 +106,6 @@
         </div>
       </nav>
 
-      <!-- Mobile Hamburger -->
       <div class="flex lg:hidden items-center">
         <button id="mobile-menu-btn" class="text-gray-700 hover:text-rose-600 focus:outline-none">
           <svg id="hamburger" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,7 +119,6 @@
     </div>
   </div>
 
-  <!-- Mobile Menu Dropdown -->
   <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-gray-200 shadow-lg">
     <div class="px-5 py-6 space-y-5">
       <div class="space-y-1">
@@ -149,11 +142,11 @@
 
   
 
-<!-- ================= SIGN IN SECTION ================= -->
+
 <section class=" my-20 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
   <div class="w-full max-w-md bg-white/95 backdrop-blur-lg rounded-3xl  p-8 sm:p-10 lg:p-12">
     
-    <!-- Heading -->
+    
     <div class="text-center mb-10">
       <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 font-serif tracking-tight mb-3">
         Sign in to your account
@@ -166,9 +159,9 @@
       </p>
     </div>
 
-    <!-- Form -->
+    
     <form class="space-y-6">
-      <!-- Email -->
+      
       <div>
         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
           Email address
@@ -182,7 +175,7 @@
         >
       </div>
 
-      <!-- Password with Show/Hide -->
+ 
       <div>
         <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
           Password
@@ -208,7 +201,7 @@
         </div>
       </div>
 
-      <!-- Remember & Forgot -->
+    
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
         <label class="flex items-center text-gray-600">
           <input type="checkbox" class="h-4 w-4 text-rose-600 focus:ring-rose-500 border-gray-300 rounded">
@@ -219,7 +212,7 @@
         </a>
       </div>
 
-      <!-- Sign In Button -->
+      
       <button 
         type="submit"
         class="w-full bg-gray-900 hover:bg-gray-800 text-white font-medium py-4 rounded-xl text-lg transition-all duration-300 shadow-md hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
@@ -228,7 +221,7 @@
       </button>
     </form>
 
-    <!-- Agreement Text -->
+    
     <p class="mt-8 text-center text-sm text-gray-500">
       By signing in, you agree to our 
       <a href="#" class="text-rose-600 hover:underline">Terms of Service</a> and 
@@ -238,7 +231,7 @@
 </section>
 
 <script>
-// Password toggle functionality
+
 const togglePassword = document.getElementById('togglePassword');
 const password = document.getElementById('password');
 const eyeIcon = document.getElementById('eyeIcon');
@@ -265,10 +258,10 @@ togglePassword.addEventListener('click', function () {
 
     
 
-    <!-- Main Footer Links + Logo/Social -->
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 mb-12 lg:mb-16">
 
-      <!-- Brand / Logo + Description -->
+  
       <div class="flex flex-col items-start">
         <a href="#" class="">
           <img 
@@ -281,19 +274,19 @@ togglePassword.addEventListener('click', function () {
           Premium Korean-inspired skincare that blends tradition with modern science for radiant, healthy skin.
         </p>
         <div class="flex gap-4">
-          <!-- Instagram -->
+        
           <a href="#" class="text-gray-500 hover:text-rose-600 transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.239 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.239-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.239-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-2.062.094-3.479.632-4.729 1.882-1.25 1.25-1.788 2.667-1.882 4.729-.058 1.28-.072 1.688-.072 4.947s.014 3.667.072 4.947c.094 2.062.632 3.479 1.882 4.729 1.25 1.25 2.667 1.788 4.729 1.882 1.28.058 1.688.072 4.947.072s3.667-.014 4.947-.072c2.062-.094 3.479-.632 4.729-1.882 1.25-1.25 1.788-2.667 1.882-4.729.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.094-2.062-.632-3.479-1.882-4.729-1.25-1.25-2.667-1.788-4.729-1.882-1.28-.058-1.688-.072-4.947-.072z"/>
             </svg>
           </a>
-          <!-- Facebook -->
+         
           <a href="#" class="text-gray-500 hover:text-rose-600 transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
             </svg>
           </a>
-          <!-- Twitter / Instagram alt -->
+          
           <a href="#" class="text-gray-500 hover:text-rose-600 transition">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.326 3.608 1.301.975.975 1.239 2.242 1.301 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.326 2.633-1.301 3.608-.975.975-2.242 1.239-3.608 1.301-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.326-3.608-1.301-.975-.975-1.239-2.242-1.301-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.326-2.633 1.301-3.608.975-.975 2.242-1.239 3.608-1.301 1.266-.058 1.646-.07 4.85-.07z"/>
@@ -302,7 +295,6 @@ togglePassword.addEventListener('click', function () {
         </div>
       </div>
 
-      <!-- Shop Links -->
       <div>
         <h3 class="text-xl font-semibold text-gray-900 mb-6">Shop</h3>
         <ul class="space-y-3 text-gray-600">
@@ -313,7 +305,6 @@ togglePassword.addEventListener('click', function () {
         </ul>
       </div>
 
-      <!-- About Links -->
       <div>
         <h3 class="text-xl font-semibold text-gray-900 mb-6">About</h3>
         <ul class="space-y-3 text-gray-600">
@@ -326,7 +317,6 @@ togglePassword.addEventListener('click', function () {
 
     </div>
 
-    <!-- Bottom Copyright -->
     <div class="pt-8 border-t border-gray-200 text-center text-gray-500 text-sm">
       © 2026 SaulMihrage. All rights reserved.
     </div>
